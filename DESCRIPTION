@@ -1,7 +1,7 @@
 Package: ptstem
 Type: Package
 Title: Stemming Algorithms for the Portuguese Language
-Version: 0.0.1
+Version: 0.0.2
 Author: Daniel Falbel
 Maintainer: Daniel Falbel <dfalbel@gmail.com>
 Description: Wraps a collection of stemming algorithms for the Portuguese
@@ -12,8 +12,8 @@ LazyData: TRUE
 RoxygenNote: 5.0.1
 Encoding: UTF-8
 Imports: dplyr, hunspell, magrittr, rslp, SnowballC, stringr, tidyr
-Suggests: testthat, covr
+Suggests: testthat, covr, plyr
 NeedsCompilation: no
-Packaged: 2016-09-09 19:21:24 UTC; dfalbel
+Packaged: 2016-09-17 15:31:11 UTC; dfalbel
 Repository: CRAN
-Date/Publication: 2016-09-10 01:31:51
+Date/Publication: 2016-09-17 18:03:32

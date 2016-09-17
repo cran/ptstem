@@ -4,12 +4,14 @@
 #'
 #' @param words,texts character vector of words.
 #' @param algorithm string with the name of the algorithm to be used. One of \code{"hunspell"},
-#' \code{"rslp"} and \code{"porter"}.
+#' \code{"rslp"}, \code{"porter"} and \code{modified-hunspell}.
 #' @param ... other arguments passed to the algorithms.
 #' @param n_char minimum number of characters of words to be stemmed. Not used by \code{ptstem_words}.
 #' @param ignore vector of words and regex's to igore. Words are wrapped around \code{stringr::fixed()} for words
 #' like 'banana' dont't get excluded when you ignore 'ana'. Also elements are considered a regex when
 #' they contain at least one punctuation symbol.
+#' @param complete wheter to complete words or not i.e. change all words with the same stem by the word that appears
+#' the most with that stem.
 #'
 #' @details
 #' You can choose wheter to complete words or not using the \code{complete} argument. By default all
@@ -36,21 +38,28 @@
 #' @rdname ptstem
 #'
 #' @export
-ptstem_words <- function(words, algorithm = "rslp", ...){
+ptstem_words <- function(words, algorithm = "rslp", complete = T, ...){
+  stopifnot(algorithm %in% c("hunspell", "rslp", "porter", "modified-hunspell"))
+  stopifnot(complete %in% c(TRUE, FALSE) & (!is.numeric(complete)))
   if (algorithm == "hunspell") {
-    return(stem_hunspell(words))
+    return(stem_hunspell(words, complete = complete, ...))
   }
   if (algorithm == "rslp") {
-    return(stem_rslp(words, ...))
+    return(stem_rslp(words, complete = complete, ...))
   }
   if (algorithm == "porter") {
-    return(stem_porter(words, ...))
+    return(stem_porter(words, complete = complete, ...))
+  }
+  if (algorithm == "modified-hunspell") {
+    return(stem_modified_hunspell(words, complete = complete, ...))
   }
 }
 
 #' @rdname ptstem
 #' @export
-ptstem <- function(texts, algorithm = "rslp", n_char = 3, ignore = NULL, ...){
+ptstem <- function(texts, algorithm = "rslp", n_char = 3, complete = T, ignore = NULL, ...){
+  stopifnot(algorithm %in% c("hunspell", "rslp", "porter", "modified-hunspell"))
+  stopifnot(complete %in% c(TRUE, FALSE) & (!is.numeric(complete)))
   words <- extract_words(texts)
   words <- words[stringr::str_length(words) >= n_char]
   if (!is.null(ignore)) {
@@ -64,7 +73,7 @@ ptstem <- function(texts, algorithm = "rslp", n_char = 3, ignore = NULL, ...){
     }
   }
   if (length(words) > 0) {
-    words_s <- ptstem_words(words, algorithm = algorithm, ...)
+    words_s <- ptstem_words(words, algorithm = algorithm, complete = complete, ...)
     names(words_s) <- sprintf("\\b%s\\b", words)
     words_s <- words_s[!is.na(words_s)]
     texts <- stringr::str_replace_all(texts, words_s)
