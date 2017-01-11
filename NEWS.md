@@ -1,3 +1,8 @@
+# ptstem 0.0.3
+
+* Using the tokenizers package to extract words from text
+* Add an overview vignette
+
 # ptstem 0.0.2
 
 * Add the `complete` argument. Before it was used undirectly.
