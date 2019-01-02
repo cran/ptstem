@@ -1,7 +1,7 @@
 Package: ptstem
 Type: Package
 Title: Stemming Algorithms for the Portuguese Language
-Version: 0.0.3
+Version: 0.0.4
 Authors@R: person("Daniel", "Falbel", email = "dfalbel@gmail.com",
                   role = c("aut", "cre"))
 Description: Wraps a collection of stemming algorithms for the Portuguese
@@ -16,8 +16,8 @@ Imports: dplyr, hunspell, magrittr, rslp, SnowballC, stringr, tidyr,
 Suggests: testthat, covr, plyr, knitr, rmarkdown
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2017-01-11 01:23:50 UTC; dfalbel
+Packaged: 2019-01-02 14:18:57 UTC; dfalbel
 Author: Daniel Falbel [aut, cre]
 Maintainer: Daniel Falbel <dfalbel@gmail.com>
 Repository: CRAN
-Date/Publication: 2017-01-11 09:00:17
+Date/Publication: 2019-01-02 14:40:02 UTC
