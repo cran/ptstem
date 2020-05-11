@@ -1,3 +1,7 @@
+# ptstem 0.0.6
+
+* Fixes for dplyr 1.0.0
+
 # ptstem 0.0.4
 
 * Fixes for dplyr 0.8.0

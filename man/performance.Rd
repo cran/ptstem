@@ -22,4 +22,3 @@ Performance
 \dontrun{perf <- performance()}
 
 }
-
