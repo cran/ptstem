@@ -23,7 +23,7 @@ As hunspell_stem can return a list of stems for each word, the function
 takes the stems that appears the most in the vector for each word.
 }
 \examples{
-words <- c("balões", "aviões", "avião", "gostou", "gosto", "gostaram")
+words <- c("gostou", "gosto", "gostaram")
 ptstem:::stem_modified_hunspell(words)
 
 }

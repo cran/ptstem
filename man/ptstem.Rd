@@ -38,13 +38,13 @@ Complete finds the stem that appears the most in the full corpus. That's why it 
 you are stemming in parallel.
 }
 \examples{
-words <- c("balões", "aviões", "avião", "gostou", "gosto", "gostaram")
+words <- c("gostou", "gosto", "gostaram")
 ptstem_words(words, "hunspell")
 ptstem_words(words)
 ptstem_words(words, algorithm = "porter", complete = FALSE)
 
-texts <- c("coma frutas pois elas fazem bem para a saúde.",
-"não coma doces, eles fazem mal para os dentes.")
+texts <- c("coma frutas pois elas fazem bem para a vida.",
+"nunca coma doces, eles fazem mal para os dentes.")
 ptstem(texts, "hunspell")
 ptstem(texts, n_char = 5)
 ptstem(texts, "porter", n_char = 4, complete = FALSE)

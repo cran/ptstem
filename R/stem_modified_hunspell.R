@@ -14,7 +14,7 @@
 #' @param complete wheter words must be completed or not (T)
 #'
 #' @examples
-#' words <- c("balões", "aviões", "avião", "gostou", "gosto", "gostaram")
+#' words <- c("gostou", "gosto", "gostaram")
 #' ptstem:::stem_modified_hunspell(words)
 #'
 stem_modified_hunspell <- function(words, complete = TRUE){

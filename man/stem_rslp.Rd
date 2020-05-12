@@ -19,7 +19,7 @@ to complete the stemmed words. By default it completes with the most used
 word in the text that has the same stem.
 }
 \examples{
-words <- c("balões", "aviões", "avião", "gostou", "gosto", "gostaram")
+words <- c("gostou", "gosto", "gostaram")
 ptstem:::stem_rslp(words)
 
 }

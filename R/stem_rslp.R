@@ -13,7 +13,7 @@
 #' V. Orengo, C. Huyck, "A Stemming Algorithmm for the Portuguese Language", SPIRE, 2001, String Processing and Information Retrieval, International Symposium on, String Processing and Information Retrieval, International Symposium on 2001, pp. 0186, doi:10.1109/SPIRE.2001.10024
 #'
 #' @examples
-#' words <- c("balões", "aviões", "avião", "gostou", "gosto", "gostaram")
+#' words <- c("gostou", "gosto", "gostaram")
 #' ptstem:::stem_rslp(words)
 #'
 stem_rslp <- function(words, complete = TRUE){
